@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{% static 'css\home.css' %}">
+</head>
+
+<body>
+    <header>
+        <center>
+            <h2>Cloth-Shop</h2>
+        </center>
+    </header>
+    <div>
+        <center>
+            <table border="1">
+                <tr>
+                    <th>Id</th>
+                    <th>Product</th>
+                    <th>Type</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                {% for i in cloth %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.product}}</td>
+                    <td></td>
+                    <td>{{i.size}}</td>
+                    <td>{{i.price}}</td>
+                    <td><a href="edit/{{i.id}}">Edit</a></td>
+                    <td><a href="delete/{{i.id}}">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </center>
+
+
+    </div>
+    <br><br><br>
+    <div>
+        <center>
+            <form action="/addnew">
+                <input type="submit" value="Add New Data">
+            </form>
+        </center>
+
+    </div>
+    <footer>
+        <div>
+            <h3>ABOUT US:</h3>
+            <p>This web-application manage your all selling product</p>
+            <br>
+            <h4>Contact:</h4>
+            +90 9021858210
+            <h4>Email:</h4>
+            bhagyeshgharge6265@gmail.com
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
